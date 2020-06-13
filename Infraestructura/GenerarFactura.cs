@@ -19,12 +19,15 @@ namespace Infraestructura
             PdfWriter writer = PdfWriter.GetInstance(document, stream);
             document.AddAuthor("Aplicacion Veterinaria");
             document.Open();
-           
+            Image imagen = Image.GetInstance(@"C:\Users\Rochety\Documents\cruzar.PNG");
+            imagen.Alignment = Element.ALIGN_RIGHT;
+            document.Add(imagen);
+            document.Add(new Paragraph("\n"));
             Paragraph parrafo = (new Paragraph("VETERINARIA SOFT"));
             parrafo.Alignment = Element.ALIGN_CENTER;
             document.Add(parrafo);
             document.Add(new Paragraph("\n"));
-            document.Add(new Paragraph(" REPORTE DE FACTURA REALIZADA"));
+            document.Add(new Paragraph("REPORTE DE FACTURA REALIZADA"));
             document.Add(new Paragraph("\n"));
             document.Add(new Paragraph($"FACTURA N° : {factura.Codigo}"));
             document.Add(new Paragraph("\n"));
@@ -46,7 +49,7 @@ namespace Infraestructura
             parrafo1.Alignment = Element.ALIGN_RIGHT;
             document.Add(parrafo1);
             document.Add(new Paragraph("\n"));
-
+ 
             document.Close();
         }
 
